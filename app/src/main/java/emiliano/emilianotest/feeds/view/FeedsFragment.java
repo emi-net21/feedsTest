@@ -6,7 +6,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.util.List;
+
 import emiliano.emilianotest.R;
+import twitter4j.Status;
 
 /**
  * A placeholder fragment containing a simple view.
@@ -23,7 +26,12 @@ public class FeedsFragment extends Fragment implements IFeedsMain {
     }
 
     @Override
-    public void showProgress(boolean show) {
+    public void showProgress() {
+
+    }
+
+    @Override
+    public void showFeeds(List<Status> feeds) {
 
     }
 
