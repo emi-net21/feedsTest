@@ -12,14 +12,15 @@ import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 import emiliano.emilianotest.R;
+import emiliano.emilianotest.feeds.model.Feed;
 import twitter4j.Status;
 
 public class FeedsRVAdapter extends RecyclerView.Adapter<FeedsRVAdapter.ViewHolder>  {
 
-    private final Context context;
-    private final List<Status> feeds;
+    private Context context;
+    private final List<Feed> feeds;
 
-    public FeedsRVAdapter(final Context context, final List<Status> feeds) {
+    public FeedsRVAdapter(Context context, final List<Feed> feeds) {
         this.context = context;
         this.feeds = feeds;
     }
@@ -33,7 +34,7 @@ public class FeedsRVAdapter extends RecyclerView.Adapter<FeedsRVAdapter.ViewHold
 
     @Override
     public void onBindViewHolder(FeedsRVAdapter.ViewHolder holder, int position) {
-        Status tweet = feeds.get(position);
+        Feed tweet = feeds.get(position);
         holder.tvMessage.setText(tweet.getText());
     }
 

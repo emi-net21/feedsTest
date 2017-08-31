@@ -2,7 +2,7 @@ package emiliano.emilianotest.feeds.view;
 
 import java.util.List;
 
-import twitter4j.Status;
+import emiliano.emilianotest.feeds.model.Feed;
 
 /**
  * Created by Emiliano on 30/8/17.
@@ -10,5 +10,5 @@ import twitter4j.Status;
 
 public interface IFeedsMain {
     void showProgress();
-    void showFeeds(List<Status> feeds);
+    void showFeeds(List<Feed> feeds);
 }
