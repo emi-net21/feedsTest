@@ -28,7 +28,6 @@ public class FeedsFragment extends Fragment implements IFeedsMain {
     private RecyclerView rvFeeds;
 
     public FeedsFragment() {
-        feedsPresenter = new FeedsPresenter(this);
     }
 
     @Override
@@ -41,6 +40,8 @@ public class FeedsFragment extends Fragment implements IFeedsMain {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        feedsPresenter = new FeedsPresenter(this, getActivity());
+
         rvFeeds = view.findViewById(R.id.rv_feeds);
         final EditText etText = view.findViewById(R.id.et_text);
         ImageButton ibSearch = view.findViewById(R.id.ib_search);
@@ -51,6 +52,7 @@ public class FeedsFragment extends Fragment implements IFeedsMain {
                 feedsPresenter.onSearchFeeds(etText.getText().toString());
             }
         });
+
     }
 
     /**
