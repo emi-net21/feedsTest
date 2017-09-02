@@ -1,14 +1,15 @@
 package emiliano.emilianotest.feeds.presenter;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import emiliano.emilianotest.feeds.model.Feed;
+import emiliano.emilianotest.feeds.twitter.TwitterFeedsProvider;
 import emiliano.emilianotest.feeds.view.IFeedsMain;
+import twitter4j.Status;
 
-public class FeedsPresenter implements IFeedsPresenter {
+public class FeedsPresenter implements IFeedsPresenter, TwitterFeedsProvider.ListenerApiGetFeeds {
 
     private IFeedsMain feedsMain;
+    private TwitterFeedsProvider twitterFeedsProvider;
 
     public FeedsPresenter(IFeedsMain feedsMain) {
         this.feedsMain = feedsMain;
@@ -17,16 +18,17 @@ public class FeedsPresenter implements IFeedsPresenter {
     @Override
     public void onSearchFeeds(String text) {
         feedsMain.showProgress();
-        feedsMain.showFeeds(setData());
+        twitterFeedsProvider = new TwitterFeedsProvider();
+        twitterFeedsProvider.getFeedsByWord(text, this);
     }
 
-    private List<Feed> setData() {
-        List<Feed> result = new ArrayList<>();
-        result.add(new Feed("11111"));
-        result.add(new Feed("222"));
-        result.add(new Feed("333"));
-        result.add(new Feed("444"));
-        result.add(new Feed("5555"));
-        return result;
-     }
+    @Override
+    public void onGetFeedsSuccess(List<Status> feeds) {
+        feedsMain.showFeeds(feeds);
+    }
+
+    @Override
+    public void onGetFeedsFailure() {
+        feedsMain.showError();
+    }
 }
