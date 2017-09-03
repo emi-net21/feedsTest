@@ -3,6 +3,7 @@ package emiliano.emilianotest.feeds.view;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -28,7 +29,6 @@ public class FeedsFragment extends Fragment implements IFeedsMain {
     private RecyclerView rvFeeds;
 
     public FeedsFragment() {
-        feedsPresenter = new FeedsPresenter(this);
     }
 
     @Override
@@ -41,6 +41,10 @@ public class FeedsFragment extends Fragment implements IFeedsMain {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle(getString(R.string.feeds));
+
+        feedsPresenter = new FeedsPresenter(this, getActivity());
+
         rvFeeds = view.findViewById(R.id.rv_feeds);
         final EditText etText = view.findViewById(R.id.et_text);
         ImageButton ibSearch = view.findViewById(R.id.ib_search);
@@ -51,6 +55,7 @@ public class FeedsFragment extends Fragment implements IFeedsMain {
                 feedsPresenter.onSearchFeeds(etText.getText().toString());
             }
         });
+
     }
 
     /**
