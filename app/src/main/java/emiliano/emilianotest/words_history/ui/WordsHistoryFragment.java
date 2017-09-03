@@ -75,7 +75,7 @@ public class WordsHistoryFragment extends Fragment implements IWordsMain {
 
         wordsPresenter = new WordsPresenter(this, getContext());
 
-        rvWordsHistory = view.findViewById(R.id.rv_words_history);
+        rvWordsHistory = (RecyclerView) view.findViewById(R.id.rv_words_history);
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
         DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(rvWordsHistory.getContext(),
                 layoutManager.getOrientation());

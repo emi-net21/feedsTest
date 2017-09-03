@@ -65,7 +65,6 @@ public class MainActivity extends AppCompatActivity {
                         }
                     });
                 } else {
-                    //show hamburger
                     getSupportActionBar().setDisplayHomeAsUpEnabled(false);
                 }
             }
@@ -87,7 +86,7 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.action_show_history) {
             WordsHistoryFragment wordsHistoryFragment = WordsHistoryFragment.newInstance();
             // Add the fragment to the 'fragment_container' FrameLayout
             FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
@@ -95,7 +94,7 @@ public class MainActivity extends AppCompatActivity {
             // Replace whatever is in the fragment_container view with this fragment,
             // and add the transaction to the back stack so the user can navigate back
             transaction.replace(R.id.fragment_container, wordsHistoryFragment);
-            transaction.addToBackStack("tag");
+            transaction.addToBackStack("WordsHistoryFragment");
             transaction.commit();
         }
 

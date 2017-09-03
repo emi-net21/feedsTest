@@ -19,7 +19,6 @@ public class WordsPresenter implements IWordsPresenter {
 
     public WordsPresenter(IWordsMain listenerWordsMain, Context context) {
         this.wordsDBPresenter = new WordsDBPresenter(context);
-        ;
         this.listenerWordsMain = listenerWordsMain;
     }
 

@@ -45,9 +45,9 @@ public class FeedsFragment extends Fragment implements IFeedsMain {
 
         feedsPresenter = new FeedsPresenter(this, getActivity());
 
-        rvFeeds = view.findViewById(R.id.rv_feeds);
-        final EditText etText = view.findViewById(R.id.et_text);
-        ImageButton ibSearch = view.findViewById(R.id.ib_search);
+        rvFeeds = (RecyclerView) view.findViewById(R.id.rv_feeds);
+        final EditText etText = (EditText) view.findViewById(R.id.et_text);
+        ImageButton ibSearch = (ImageButton) view.findViewById(R.id.ib_search);
 
         ibSearch.setOnClickListener(new View.OnClickListener() {
             @Override

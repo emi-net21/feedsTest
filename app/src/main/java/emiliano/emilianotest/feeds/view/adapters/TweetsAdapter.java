@@ -59,11 +59,11 @@ public class TweetsAdapter extends RecyclerView.Adapter<TweetsAdapter.ViewHolder
 
         public ViewHolder(View itemView) {
             super(itemView);
-            photoImageView = itemView.findViewById(R.id.photoImageView);
-            nameTextView = itemView.findViewById(R.id.nameTextView);
-            usernameTextView = itemView.findViewById(R.id.usernameTextView);
-            timeTextView = itemView.findViewById(R.id.timeTextView);
-            messageTextView = itemView.findViewById(R.id.messageTextView);
+            photoImageView = (ImageView) itemView.findViewById(R.id.photoImageView);
+            nameTextView = (TextView) itemView.findViewById(R.id.nameTextView);
+            usernameTextView = (TextView) itemView.findViewById(R.id.usernameTextView);
+            timeTextView = (TextView) itemView.findViewById(R.id.timeTextView);
+            messageTextView = (TextView) itemView.findViewById(R.id.messageTextView);
         }
     }
 }
