@@ -3,6 +3,7 @@ package emiliano.emilianotest.feeds.view;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -39,6 +40,8 @@ public class FeedsFragment extends Fragment implements IFeedsMain {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle(getString(R.string.feeds));
 
         feedsPresenter = new FeedsPresenter(this, getActivity());
 

@@ -3,6 +3,8 @@ package emiliano.emilianotest.words_history.ui;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -68,10 +70,16 @@ public class WordsHistoryFragment extends Fragment implements IWordsMain {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle(getString(R.string.action_word_history));
+
+
         wordsPresenter = new WordsPresenter(this, getContext());
 
         rvWordsHistory = view.findViewById(R.id.rv_words_history);
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
+        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(rvWordsHistory.getContext(),
+                layoutManager.getOrientation());
+        rvWordsHistory.addItemDecoration(dividerItemDecoration);
         rvWordsHistory.setLayoutManager(layoutManager);
         wordsPresenter.getWordsHistory();
     }
